@@ -1,5 +1,6 @@
 import style from './App.module.css';
 import { Rocket, PlusCircle } from "@phosphor-icons/react";
+import { Tasks } from './components/Tasks';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
           <input type="text" className={style.input} placeholder='Adicione uma nova tarefa' />
           <button className={style.createButton}><span>Criar</span><PlusCircle size={24} ></PlusCircle></button>
         </div>
+
+        <Tasks />
       </div>
     </div>
   )
