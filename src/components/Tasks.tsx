@@ -1,16 +1,33 @@
-import style from './Tasks.module.css'
+import { Task } from './Task';
+import style from './Tasks.module.css';
 
-export function Tasks() {
+export interface Task {
+    checked: boolean;
+    description: string;
+}
+
+export function Tasks({ tasks, handleTaskDeleted, handleTaskChange }: { handleTaskChange: (key: string) => void, handleTaskDeleted: (key: string) => void, tasks: Task[] }) {
+    const completedTasks = tasks.filter(task => task.checked === true);
+
     return (
-        <div className={style.tasks}>
-            <div className={style.created}>
-                <span className={style.createdTasks}>Tarefas criadas</span>
-                <div className={style.createdTasksCounter}><span>5</span></div>
+        <>
+            <div className={style.tasksStatus}>
+                <div className={style.created}>
+                    <span className={style.createdTasks}>Tarefas criadas</span>
+                    <div className={style.createdTasksCounter}><span>{tasks.length}</span></div>
+                </div>
+                <div className={style.concluded}>
+                    <span className={style.concludedTasks}>Concluídas</span>
+                    <span className={style.concludedTasksCounter}>{completedTasks.length} de {tasks.length}</span>
+                </div>
             </div>
-            <div className={style.concluded}>
-                <span className={style.concludedTasks}>Concluídas</span>
-                <span className={style.concludedTasksCounter}>2 de 5</span>
+
+            <div className={style.taskList}>
+                {tasks.map(task => {
+                    return <Task handleTaskChange={handleTaskChange} handleTaskDeleted={handleTaskDeleted} key={task.description} task={task}></Task>
+                })}
+
             </div>
-        </div>
+        </>
     );
 }

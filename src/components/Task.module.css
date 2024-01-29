@@ -1,0 +1,40 @@
+.task {
+    align-items: flex-start;
+    background-color: var(--gray-500);
+    border-radius: 8px;
+    border: 1px solid var(--gray-400);
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    position: relative;
+}
+
+.task + .task {
+    margin-top: 2rem;
+}
+
+.task label {
+    color: var(--gray-100);
+    font-weight: 400;
+    font-size: 0.875rem;
+    padding-right: 3.75rem;
+    width: 100%;
+}
+
+.task input[type='checkbox'] {
+    margin-right: 0.75rem;
+    margin-top: 0.3rem;
+    background-color: var(--gray-500);
+}
+
+.task .trashContainer {
+    margin-top: 0.2rem;
+}
+
+.task .trashContainer:hover {
+    background-color: var(--gray-400);
+    color: var(--danger);
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+}
