@@ -23,12 +23,15 @@ function App() {
 
   function handleCreateTask(event: FormEvent) {
     event.preventDefault();
-    setTasks([...tasks, {
-      description: task,
-      checked: false,
-      index: task + Math.random() * 10
-    }]);
-    setTask("");
+    if (task.length) {
+      setTasks([...tasks, {
+        description: task,
+        checked: false,
+        index: task + Math.random() * 10
+      }]);
+      setTask("");
+    }
+
   }
 
   function handleCommentChange(event: ChangeEvent<HTMLInputElement>): void {
@@ -47,7 +50,7 @@ function App() {
         <form onSubmit={handleCreateTask}>
           <div className={style.inputWrapper}>
             <input type="text" onChange={handleCommentChange} className={style.input} placeholder='Adicione uma nova tarefa' value={task} />
-            <button type='submit' className={style.createButton}><span>Criar</span><PlusCircle size={24} ></PlusCircle></button>
+            <button type='submit' className={style.createButton} disabled={task.length === 0}><span>Criar</span><PlusCircle size={24} ></PlusCircle></button>
           </div>
         </form>
         <Tasks tasks={tasks} handleTaskChange={handleUpdateTask} handleTaskDeleted={handleDeleteTask} />

@@ -1,3 +1,4 @@
+import { EmptyState } from './EmptyState';
 import { Task } from './Task';
 import style from './Tasks.module.css';
 
@@ -24,9 +25,10 @@ export function Tasks({ tasks, handleTaskDeleted, handleTaskChange }: { handleTa
             </div>
 
             <div className={style.taskList}>
-                {tasks.map((task) => {
-                    return <Task handleTaskChange={handleTaskChange} handleTaskDeleted={handleTaskDeleted} key={task.index} task={task}></Task>
-                })}
+                {tasks.length === 0 ? <EmptyState /> :
+                    tasks.map((task) => {
+                        return <Task handleTaskChange={handleTaskChange} handleTaskDeleted={handleTaskDeleted} key={task.index} task={task}></Task>
+                    })}
 
             </div>
         </>

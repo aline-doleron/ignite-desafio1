@@ -16,7 +16,7 @@ export function Task({ handleTaskChange, handleTaskDeleted, task }: { handleTask
         <div className={style.task}>
             <input id={task.index} onChange={handleTaskChecked} type='checkbox' checked={task.checked}></input>
             <label htmlFor={task.index} className={task.checked ? style.concluded : ''}>{task.description}</label>
-            <div className={style.trashContainer}><Trash onClick={handleTaskDelete} size={20}></Trash></div>
+            <div className={style.trashContainer}><Trash onClick={handleTaskDelete} size={16}></Trash></div>
         </div>
     )
 }

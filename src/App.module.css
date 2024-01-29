@@ -50,6 +50,7 @@
 
 .input:focus{
     border: 1px solid var(--purple-dark);
+    color: var(--gray-100);
 }
 
 .createButton {
@@ -65,5 +66,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.createButton:disabled {
+    cursor: not-allowed;
+}
+
+.createButton:hover {
+    background-color: var(--blue);
 }
 

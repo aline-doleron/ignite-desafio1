@@ -1,7 +1,7 @@
 .tasksStatus {
     display: flex;
     justify-content: space-between;
-    margin: 4rem 34.5rem 1rem 34.5rem
+    margin: 4rem 34.5rem 1.5rem 34.5rem
 }
 
 .created, .concluded {
@@ -12,6 +12,7 @@
 
 .createdTasks {
     color: var(--blue);
+    font-size: .875rem;
     font-weight: 700;
     padding-right: .5rem;
 }
@@ -31,6 +32,7 @@
 
 .concludedTasks {
     color: var(--purple);
+    font-size: .875rem;
     font-weight: 700;
     padding-right: .5rem;
 }

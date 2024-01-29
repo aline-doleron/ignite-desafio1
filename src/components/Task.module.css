@@ -55,13 +55,23 @@
 }
 
 .task .trashContainer {
-    margin-top: 0.2rem;
+    color: var(--danger);
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .task .trashContainer:hover {
-    background-color: var(--gray-400);
     color: var(--danger);
-    position: relative;
     width: 1.5rem;
     height: 1.5rem;
+    background-color: var(--gray-400);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
