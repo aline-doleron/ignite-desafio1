@@ -7,9 +7,9 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [task, setTask] = useState("");
 
-  function handleUpdateTask(taskDescription: string) {
+  function handleUpdateTask(taskIndex: string) {
     tasks.forEach(taskItem => {
-      if (taskItem.description === taskDescription) {
+      if (taskItem.index === taskIndex) {
         taskItem.checked = !taskItem.checked;
       }
     });
@@ -17,15 +17,16 @@ function App() {
     setTasks([...tasks]);
   }
 
-  function handleDeleteTask(taskDescription: string) {
-    setTasks(tasks.filter(taskItem => taskItem.description !== taskDescription));
+  function handleDeleteTask(taskIndex: string) {
+    setTasks(tasks.filter(taskItem => taskItem.index !== taskIndex));
   }
 
   function handleCreateTask(event: FormEvent) {
     event.preventDefault();
     setTasks([...tasks, {
       description: task,
-      checked: false
+      checked: false,
+      index: task + Math.random() * 10
     }]);
     setTask("");
   }
